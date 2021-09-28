@@ -48,6 +48,11 @@ const Controls = ({ myVideo }) => {
     setShowMenu(false);
   };
 
+  const onNameChange = (e) => {
+    setName(e.target.value);
+    window.localStorage.setItem("name", e.target.value);
+  };
+
   return (
     <>
       <div className="fixed bottom-20 bg-actionBackgroundHover rounded-md mb-2">
@@ -60,7 +65,7 @@ const Controls = ({ myVideo }) => {
               placeholder="Enter name here"
               className="pl-2 h-10 rounded-md"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={onNameChange}
             />
           </div>
         )}

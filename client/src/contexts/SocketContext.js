@@ -20,6 +20,12 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
 
   useEffect(() => {
+    const nameInStorage = window.localStorage.getItem("name");
+
+    if (nameInStorage) {
+      setName(nameInStorage);
+    }
+
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
